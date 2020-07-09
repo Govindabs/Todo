@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Task ID: {{data.id}}</h1>
+<div mat-dialog-content>
+    <form class="example-form" #taskform="ngForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Title</mat-label>
+            <textarea matInput name="title" [(ngModel)]="data.title" maxlength="150"
+                placeholder="Ex. I need help with..."></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" name="mail" class="form-control" matInput [(ngModel)]="data.email"
+                placeholder="Ex. pat@example.com">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select name="tasktype" [(value)]="data.status">
+                <mat-option value="scheduled">Scheduled</mat-option>
+                <mat-option value="rescheduled">Re-scheduled</mat-option>
+                <mat-option value="completed">Completed</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">CANCEL</button>
+    <button mat-button  (click)="update()" cdkFocusInitial>SAVE</button>
+</div>
